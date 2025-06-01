@@ -1,0 +1,52 @@
+import React, { useEffect, useState } from "react";
+import { deleteRecipeApi, viewRecipeAPI } from "../services/allApi";
+import { Button, Card } from "react-bootstrap";
+
+const View = () => {
+  const [deleteRecipeData, setdeleteRecipeData] = useState([]);
+  const [recipeData, setRecipeData] = useState([]);
+  const ViewRecipe = async () => {
+    let result = await viewRecipeAPI();
+    console.log(result);
+    if (result.status >= 200 && result.status <= 300) {
+      setRecipeData(result.data);
+    } else {
+      alert("Error fetching data!!!");
+    }
+  };
+  useEffect(() => {
+  ViewRecipe();
+}, []);
+ const deleteRecipe = async (id) => {
+  await deleteRecipeApi(id);
+  await ViewRecipe();
+};
+
+  return (
+    <>
+      <div>
+        <h1>All Recipes</h1>
+        <div className="row container">
+         {recipeData?.map((eachRecipe) => (
+  <div className="col-lg-3" key={eachRecipe.id}>
+              <Card style={{ width: "18rem" }}>
+                <Card.Img variant="top" src={eachRecipe.imgUrl} />
+                <Card.Body>
+                  <Card.Title>{eachRecipe.title}</Card.Title>
+                  <Card.Text>{eachRecipe.ingredient}</Card.Text>
+                  <Card.Text>{eachRecipe.desc}</Card.Text>
+                  <Card.Text>{eachRecipe.prepTime}</Card.Text>
+                  <Button variant="primary">Edit</Button>
+
+                 <Button onClick={() => deleteRecipe(eachRecipe.id)}>Delete</Button>
+                </Card.Body>
+              </Card>
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default View;
