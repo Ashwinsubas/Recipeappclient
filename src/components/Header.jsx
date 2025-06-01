@@ -6,11 +6,11 @@ const Header = () => {
   return (
     <div className="text-light">
       <Navbar
-        className="bg-secondary w-100 fixed-top shadow"
+        className="bg-primary w-100 fixed-top shadow"
         style={{ zIndex: 1 }}
       >
         <Container>
-          <Navbar.Brand className="text-light fw-bolder">
+          <Navbar.Brand className="text-light  fw-bolder">
             <Link
               className="fw-bolder bold-text"
               style={{
@@ -20,8 +20,8 @@ const Header = () => {
               }}
               to={"/"}
             >
-              <i className="fw-bolder fa-solid fa-cake-candles"></i> Foodie
-              Crush
+                <div className="text-white">
+              <i className="fw-bolder fa-solid fa-cake-candles text-white"></i>  Lets Cook It</div>
             </Link>
           </Navbar.Brand>
         </Container>

@@ -23,21 +23,22 @@ const View = () => {
 
   return (
     <>
-      <div>
-        <h1>All Recipes</h1>
+      <div className="border shadow">
+        <h1 className="text-center">All Recipes</h1>
         <div className="row container">
          {recipeData?.map((eachRecipe) => (
   <div className="col-lg-3" key={eachRecipe.id}>
               <Card style={{ width: "18rem" }}>
-                <Card.Img variant="top" src={eachRecipe.imgUrl} />
+                <Card.Img style={{minHeight:'30vh',width:'17.9rem'}} variant="top" src={eachRecipe.imgUrl} />
                 <Card.Body>
                   <Card.Title>{eachRecipe.title}</Card.Title>
                   <Card.Text>{eachRecipe.ingredient}</Card.Text>
                   <Card.Text>{eachRecipe.desc}</Card.Text>
                   <Card.Text>{eachRecipe.prepTime}</Card.Text>
+                  <div className="d-flex justify-content-between">
                   <Button variant="primary">Edit</Button>
 
-                 <Button onClick={() => deleteRecipe(eachRecipe.id)}>Delete</Button>
+                 <Button onClick={() => deleteRecipe(eachRecipe.id)}>Delete</Button></div>
                 </Card.Body>
               </Card>
             </div>

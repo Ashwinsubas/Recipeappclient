@@ -30,12 +30,17 @@ const handleSaveClick = async () => {
 
   return (
 <>
+    <div>
+        <img style={{width:'100%',height:'70vh'}} src="https://i.pinimg.com/originals/72/9b/17/729b174fb8d50fce2c76e2dcc4aa14e4.gif" alt="" />
+
+        <div className='d-flex justify-content-center align-items-center mt-2 text-warning'><h3 className='bg-secondary border-1 rounded p-2'>Below button to add Recipes</h3></div>
      <div className="row mt-5">
-    <button onClick={handleShow} className='btn border-1'>Add Recipe</button>
+        <div className='d-flex justify-content-center align-items-center m-2'>
+    <button onClick={handleShow} className='btn border-1 bg-danger rounded '>Add Recipe</button></div>
    </div>
     <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Recipes</Modal.Title>
         </Modal.Header>
         <Modal.Body>
      <FloatingLabel
@@ -83,6 +88,7 @@ const handleSaveClick = async () => {
           </Button>
         </Modal.Footer>
       </Modal>
+      </div>
       </>
   )
 }
