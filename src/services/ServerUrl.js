@@ -1,1 +1,1 @@
-export const baseURL = "http://localhost:3000"
+export const baseURL = "https://recipeappserver-1.onrender.com"

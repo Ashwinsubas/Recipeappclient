@@ -3,7 +3,6 @@ import { deleteRecipeApi, viewRecipeAPI } from "../services/allApi";
 import { Button, Card } from "react-bootstrap";
 
 const View = () => {
-  const [deleteRecipeData, setdeleteRecipeData] = useState([]);
   const [recipeData, setRecipeData] = useState([]);
   const ViewRecipe = async () => {
     let result = await viewRecipeAPI();
